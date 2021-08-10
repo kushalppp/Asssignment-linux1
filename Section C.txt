@@ -1,0 +1,140 @@
+Section C
+
+(1)a) Count no of process:-
+ #!/bin/bash
+  echo "The no of process are runnig is:-"
+    ps -e |wc -l
+    echo "This is all are"
+   ps -e
+
+Output:-
+The no of process are runnig is:-
+10
+This is all are
+  PID TTY          TIME CMD
+    1 ?        00:00:00 init
+   87 tty2     00:00:00 init
+   88 tty2     00:00:00 bash
+  113 tty1     00:00:00 init
+  114 tty1     00:00:00 bash
+  138 tty1     00:00:03 nano
+  375 tty2     00:00:00 bash
+  378 tty2     00:00:00 ps
+
+b)Foreground process list:-
+ 
+ #!/bin/bash
+  echo "The no of foreground process:-"
+    ps aux | wc -l
+   
+output:-
+ The no of foreground process:-
+ 9
+
+c)list out the parent is init:-
+
+ #!/bin/bash
+  echo "The  process:-"
+   ps -e
+
+output:-
+The  process:-
+PID TTY          TIME CMD
+    1 ?        00:00:00 init
+   87 tty2     00:00:00 init
+   88 tty2     00:00:00 bash
+  113 tty1     00:00:00 init
+  114 tty1     00:00:00 bash
+  138 tty1     00:00:03 nano
+  375 tty2     00:00:00 bash
+  378 tty2     00:00:00 ps
+
+(2)
+
+
+
+(3) CHECK ARGUMENT IS FILE OR DIRECTORY
+#!/bin/bash
+if [ -d /mnt/c/sample.txt/ ];
+then
+echo " is a directory"
+elif [ -f /mnt/c/sample.txt ];
+then
+ echo "is a file"
+else
+  echo "is not valid"
+fi
+
+OUTPUT:-
+is a file
+
+(4)LEAP YEAR OR NOT
+#!/bin/bash
+  echo "enter a year"
+  read x
+   let "c=x%4"
+    let "y=x%100"
+    let "v=x%400"
+  if [[ ($c == 0 && $y -ne 0) || ($v == 0) ]];
+   then
+   echo " Year is Leap year"
+   else
+    echo " Year is not leap year"
+ fi
+
+OUTPUT:-
+enter a year
+2020
+ Year is Leap year
+
+(5) create directory
+#! /bin/bash
+for var in 1 2 3 4 5
+do
+ mkdir exam$var
+ echo exam$var created.
+done
+
+output:-
+exam1 created.
+exam2 created.
+exam3 created.
+exam4 created.
+exam5 created.
+exam6 created.
+exam7 created.
+exam8 created.
+exam9 created.
+mkdir: cannot create directory ‘exam10’: File exists
+exam10 created.
+
+(6)CHECK  IS FILE OR DIRECTORY
+#!/bin/bash
+if [ -d /mnt/c/sample.txt/ ];
+then
+echo " is a directory"
+elif [ -f /mnt/c/sample.txt ];
+then
+ echo "is a file"
+else
+  echo "is not valid"
+fi
+
+OUTPUT:-
+is a file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

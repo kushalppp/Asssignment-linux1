@@ -1,0 +1,37 @@
+ SECTION :- A
+
+1) mkdir kushal
+   cd kushal
+   vi a.txt
+   vi b.txt
+   vi c.txt
+   vi d.sh
+    press i
+    #/bin/sh
+     ls -lh
+     press ESC and shift + zz
+   chmod 700 kushal
+   chmod 600 a.txt
+   chmod 600 b.txt
+   chmod 200 c.txt
+   chmod 100 d.sh
+
+2)chmod 100 kushal
+
+3)chmod 400 kushal
+
+4)cd ~
+  echo *
+
+5)cd /etc/
+ echo *
+
+6)cd /etc/
+  echo *.conf
+
+7)echo "kushal">>a.txt - append name at the END OF FILE in a.txt
+
+8)cd /proc/
+  echo *
+
+ 

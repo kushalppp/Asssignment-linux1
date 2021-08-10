@@ -1,0 +1,282 @@
+SECTION B
+
+(1) 
+A)Using EXPR:-
+ #!/bin/bash
+ echo "enter two no"
+ read x
+ read y
+ echo "sum is"
+ expr $x + $y
+ echo  "product is"
+ expr $x \* $y
+ 
+Result:-
+enter two no
+10
+5
+sum is
+15
+product is
+50
+
+B)Using LET:-
+ #!/bin/bash
+ echo "enter two no"
+ read x
+ read y
+ echo "sum is"
+  let "sum = $x + $y"
+ echo $sum
+ echo  "product is"
+ let  "pr = $x  *  $y"
+ echo $pr
+
+Result:-
+enter two no
+8
+5
+sum is
+13
+product is
+40
+
+C)Using BC:-
+ #!/bin/bash
+ echo "enter two no"
+ read x
+ read y
+ echo "$x  + $y" | bc
+ echo "$x  * $y" | bc
+ 
+ Result:-
+enter two no
+120
+5
+125
+600
+
+(2)FLOATING POINT DIVIDION:-
+  #!/bin/bash
+ echo "enter two no"
+ read x
+ read y
+ echo "scale = 4; $x / $y" | bc
+ 
+ Result:-
+enter two no
+5
+2
+2.5000
+
+(3)calender previous and next year:-
+ #!/bin/bash
+ echo "enter current month and Year"
+ read  x
+ read y
+  let "y=y+1"
+  let "c=y-2"
+ echo "next year:- "
+ cal $x $y
+ echo "previous year:-"
+ cal $x $c
+
+  Result:-
+  enter  current month
+05
+2021
+next year:-
+      May 2022
+Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30 31
+
+previous year:-
+      May 2020
+Su Mo Tu We Th Fr Sa
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+31
+
+(4)EVEN AND ODD
+  #!/bin/bash
+ echo "enter number"
+ read  x
+ let "y=x%2"
+ if [ $y == 0 ]
+ then
+ echo "number $x  is even "
+ else
+ echo "number $x is odd"
+ fi
+
+ Result:-
+ enter number
+10
+number 10  is even
+
+(5) A)
+#!/bin/bash
+  echo "enter Three number"
+  read  x
+  read y
+  read c
+  if [[ ($x -lt $y && $y -lt $c && $x -lt $c) ]];
+  then
+    echo "$c is big"
+elif [[ ($y -lt $x && $x -lt $c && $y -lt $c) ]];
+   then
+   echo "$c is big"
+elif [[ ($x -lt $y && $c -lt $y  && $x -lt $c) ]];
+   then
+   echo "$y is big"
+elif [[ ($x -lt $y && $c -lt $y && $c -lt $x)]];
+   then
+    echo "$y is big"
+else
+     echo "$x is big"
+   fi
+
+Result:-
+enter Three number
+50
+60
+10
+60 is big
+
+(5) b)
+#!/bin/bash
+  echo "enter Three number"
+  read  x
+  read y
+  read c
+let "a=x+y"
+let "b=a+c"
+echo "average is "
+let "q=b/3"
+echo "$q"
+
+Result:-
+enter Three number
+4
+9
+11
+average is
+8
+
+(6) TRIANGLES:-
+#!/bin/bash
+  echo "enter Three length of sides triangle"
+  read x
+  read y
+  read c
+  if [[ ($x -eq $y && $x -eq $c) ]];
+  then
+   echo "This is Equilateral triangle"
+   elif [[ ($x -eq $y || $x -eq $c) ]];
+    then
+    echo " This is Isosceles triangle"
+   else
+      echo "This is Scalene triangle"
+  fi
+
+Result:-
+enter Three length of sides
+4
+5
+8
+This is Scalene triangle
+ 
+(7) a) DAY IN WEEK
+#!/bin/bash
+  echo "enter no. of day"
+  read x
+
+  if [[ ($x -eq  1)]];
+  then
+   echo "Monday"
+   elif [[ ($x -eq  2)]];
+    then
+    echo "Tuesday"
+    elif [[ ($x -eq 3)]];
+     then
+       echo "Wednesday"
+     elif [[ ($x -eq 4)]];
+     then
+     echo "Thursday"
+     elif [[ ( $x -eq 5)]];
+      then
+     echo  "Friday"
+    elif [[ ( $x -eq 6)]];
+      then
+    echo " Saturday"
+   elif [[ ( $x -eq 7) ]];
+    then
+     echo "Sunday"
+   else
+    echo " please enter valid no."
+ fi
+
+OUTPUT:-
+enter no. of day
+3
+Wednesday
+
+(7) B)
+#!/bin/bash
+  echo "enter no. of day"
+  read x
+case $x in
+     1)
+   echo "Monday"
+     ;;
+     2)
+    echo "Tuesday"
+     ;;
+     3)
+     echo "wednesday"
+     ;;
+     4)
+     echo " thursday"
+     ;;
+     5)
+     echo " Firday"
+     ;;
+     6)
+     echo" Saturday"
+     ;;
+     7)
+     echo "sunday"
+     ;;
+esac
+
+OUTPUT:-
+enter no. of day
+7
+sunday
+
+(8)LEAP YEAR OR NOT
+#!/bin/bash
+  echo "enter a year"
+  read x
+   let "c=x%4"
+    let "y=x%100"
+    let "v=x%400"
+  if [[ ($c == 0 && $y -ne 0) || ($v == 0) ]];
+   then
+   echo " Year is Leap year"
+   else
+    echo " Year is not leap year"
+ fi
+
+OUTPUT:-
+enter a year
+2020
+ Year is Leap year
+
